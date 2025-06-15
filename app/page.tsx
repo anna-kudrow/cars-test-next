@@ -1,10 +1,14 @@
+import ProductCard from "./components/productCard";
 import SortingPicker from "./components/sortingPicker";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-blue-50 p-4">
-      <div className="w-full rounded-xl bg-white p-4">
+    <main className="flex min-h-screen flex-col items-center justify-center space-y-4 bg-blue-50 p-4">
+      <div className="w-full rounded-xl bg-white p-4 shadow-md">
         <SortingPicker />
+      </div>
+      <div className="flex flex-wrap justify-between gap-4">
+        <ProductCard />
       </div>
     </main>
   );
