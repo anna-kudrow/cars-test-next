@@ -1,28 +1,40 @@
 import Image from "next/image";
 import { Button } from "~/components/ui/button";
 import { Card, CardContent, CardFooter } from "~/components/ui/card";
-function ProductCard() {
+import type { Product } from "~/lib/types";
+
+function ProductCard({ product }: { product: Product }) {
   return (
-    <Card>
-      <CardContent>
-        <Image src="" alt="" />
-        <div>
-          <h3>name</h3>
+    <Card className="gap-2 py-0">
+      <CardContent className="px-0">
+        <Image
+          className="rounded-t-xl"
+          src={product.images.image[0]}
+          width={300}
+          height={200}
+          alt={product.mark_id}
+        />
+        <div className="px-4">
+          <h3>
+            <span>{product.mark_id}</span>
+            <span>{product.folder_id}</span>
+          </h3>
           <div>
-            <span>price</span>
-            <span>credit</span>
+            <span>{product.price}</span>
+            <span>{product.currency}</span>
           </div>
-          <div>engine</div>
+          <div>{product.modification_id}</div>
           <div>
-            <span>data</span> <span>data</span>
+            <span>{`${product.run} км`}</span> <span>{product.gearbox}</span>
           </div>
           <div>
-            <span>petrol</span> <span>color</span> <span>year</span>
+            <span>{product.engine_type}</span> <span>{product.color}</span>{" "}
+            <span>{product.year}</span>
           </div>
         </div>
       </CardContent>
-      <CardFooter>
-        <div className="flex justify-between">
+      <CardFooter className="px-4 pb-6">
+        <div className="flex w-full justify-between">
           <div className="flex gap-2">
             <Button variant="secondary" />
             <Button variant="secondary" />
