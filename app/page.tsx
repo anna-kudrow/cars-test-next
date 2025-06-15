@@ -1,5 +1,12 @@
 import ProductCard from "../components/custom/productCard";
 import SortingPicker from "../components/custom/sortingPicker";
+import type {Product} from '../lib/types';
+
+
+async function fetchProducts(): Promise<Product[]> {
+  const response = await fetch('https://testing-api.ru-rating.ru/cars');
+  return response.json();
+}
 
 export default function Home() {
   return (

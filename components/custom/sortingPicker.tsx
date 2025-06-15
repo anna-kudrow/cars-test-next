@@ -10,8 +10,9 @@ import {
 import { DEFAULT_SORTING_OPTION, SortingOptions } from "../../lib/const";
 
 function SortingPicker() {
-  const [sortingOption, setSortingOption] = useState(DEFAULT_SORTING_OPTION);
-
+  const [sortingOption, setSortingOption] = useState<string>(
+    DEFAULT_SORTING_OPTION,
+  );
   return (
     <DropdownMenu>
       <div className="relative w-fit">
