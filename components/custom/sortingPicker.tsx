@@ -7,7 +7,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "~/components/ui/dropdown-menu";
-import { DEFAULT_SORTING_OPTION, SortingOptions } from "../lib/const";
+import { DEFAULT_SORTING_OPTION, SortingOptions } from "../../lib/const";
 
 function SortingPicker() {
   const [sortingOption, setSortingOption] = useState(DEFAULT_SORTING_OPTION);

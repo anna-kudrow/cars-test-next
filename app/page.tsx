@@ -1,5 +1,5 @@
-import ProductCard from "./components/productCard";
-import SortingPicker from "./components/sortingPicker";
+import ProductCard from "../components/custom/productCard";
+import SortingPicker from "../components/custom/sortingPicker";
 
 export default function Home() {
   return (
