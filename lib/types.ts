@@ -61,3 +61,17 @@ export type Product = {
   color_eng: string;
   gearbox_eng: string;
 };
+
+export type ProductMeta = {
+  count: number;
+  first_page_link: string;
+  from: number;
+  last_page: number;
+  last_page_link: string;
+  limit: number;
+  next_page_link: string;
+  page: number;
+  to: number;
+  total: number;
+  total_no_filters: number;
+};

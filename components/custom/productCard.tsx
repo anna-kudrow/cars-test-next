@@ -5,7 +5,7 @@ import type { Product } from "~/lib/types";
 
 function ProductCard({ product }: { product: Product }) {
   return (
-    <Card className="gap-2 py-0">
+    <Card className="max-w-[300px] gap-2 py-0">
       <CardContent className="px-0">
         <Image
           className="rounded-t-xl"
