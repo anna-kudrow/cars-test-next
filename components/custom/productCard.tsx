@@ -6,7 +6,7 @@ import type { Product } from "~/lib/types";
 
 function ProductCard({ product }: { product: Product }) {
   return (
-    <Card className="max-w-[300px] gap-2 py-0">
+    <Card className="max-w-[300px] flex flex-col justify-between gap-2 py-0">
       <CardContent className="space-y-1 px-0">
         <Image
           className="rounded-t-xl"
@@ -38,16 +38,14 @@ function ProductCard({ product }: { product: Product }) {
       <CardFooter className="px-4 pb-6">
         <div className="flex w-full justify-between">
           <div className="flex gap-2">
-            <Button variant="secondary">
-              {" "}
+            <Button className='cursor-pointer' variant="secondary">
               <Heart />
             </Button>
-            <Button variant="secondary">
-              {" "}
+            <Button className='cursor-pointer' variant="secondary">
               <Scale />
             </Button>
           </div>
-          <Button>КУПИТЬ</Button>
+          <Button className='cursor-pointer'>КУПИТЬ</Button>
         </div>
       </CardFooter>
     </Card>
