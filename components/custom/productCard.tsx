@@ -1,3 +1,4 @@
+import { CarFront, Heart, Scale } from 'lucide-react';
 import Image from "next/image";
 import { Button } from "~/components/ui/button";
 import { Card, CardContent, CardFooter } from "~/components/ui/card";
@@ -6,7 +7,7 @@ import type { Product } from "~/lib/types";
 function ProductCard({ product }: { product: Product }) {
   return (
     <Card className="max-w-[300px] gap-2 py-0">
-      <CardContent className="px-0">
+      <CardContent className="px-0 space-y-1">
         <Image
           className="rounded-t-xl"
           src={product.images.image[0]}
@@ -14,16 +15,13 @@ function ProductCard({ product }: { product: Product }) {
           height={200}
           alt={product.mark_id}
         />
-        <div className="px-4">
-          <h3>
-            <span>{product.mark_id}</span>
-            <span>{product.folder_id}</span>
+        <div className="px-4 space-y-1">
+          <h3 className='font-bold'>{`${product.mark_id} ${product.folder_id}`}
           </h3>
-          <div>
-            <span>{product.price}</span>
-            <span>{product.currency}</span>
+          <div  className='font-bold'>
+            {`${product.price} ${product.currency}`}
           </div>
-          <div>{product.modification_id}</div>
+          <div className='flex items-center gap-1'><CarFront className='size-4' />{product.modification_id}</div>
           <div>
             <span>{`${product.run} км`}</span> <span>{product.gearbox}</span>
           </div>
@@ -36,8 +34,8 @@ function ProductCard({ product }: { product: Product }) {
       <CardFooter className="px-4 pb-6">
         <div className="flex w-full justify-between">
           <div className="flex gap-2">
-            <Button variant="secondary" />
-            <Button variant="secondary" />
+            <Button variant="secondary" > <Heart /></Button>
+            <Button variant="secondary" > <Scale /></Button>
           </div>
           <Button>КУПИТЬ</Button>
         </div>

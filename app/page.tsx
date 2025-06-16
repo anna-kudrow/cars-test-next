@@ -22,17 +22,16 @@ async function fetchProducts({
 }> {
   const [, { page = 1, sort = undefined } = {}] = queryKey;
 
-  const searchParams = new URLSearchParams({
-    _limit: "12",
-    _page: String(page),
-  });
+  const searchParams = new URLSearchParams();
+  searchParams.set("_limit", "12");
+  searchParams.set("_page", String(page));
 
   if (sort) {
-    searchParams.append("_sort", "price");
-    searchParams.append("_order", sort);
+    searchParams.set("_sort", "price");
+    searchParams.set("_order", sort);
   }
 
-  const res = await fetch(`/api/cars?${searchParams}`);
+  const res = await fetch(`/api/cars?${searchParams.toString()}`);
   const json = await res.json();
   return { data: json.data, meta: json.meta };
 }
@@ -86,8 +85,8 @@ export default function Home() {
           <PaginationContent>
             <PaginationItem>
               <PaginationPrevious
-                href={page > 1 ? createPageHref(page - 1) : "#"}
-                disabled={page <= 1}
+                href={currentPage > 1 ? createPageHref(currentPage - 1) : "#"}
+                disabled={currentPage <= 1}
               />
             </PaginationItem>
             {currentPage > 2 && (
@@ -109,7 +108,7 @@ export default function Home() {
                 <PaginationItem key={pageNum}>
                   <PaginationLink
                     href={createPageHref(pageNum)}
-                    isActive={page === pageNum}
+                    isActive={currentPage === pageNum}
                   >
                     {pageNum}
                   </PaginationLink>
@@ -132,8 +131,8 @@ export default function Home() {
             )}
             <PaginationItem>
               <PaginationNext
-                href={page < totalPages ? createPageHref(page + 1) : "#"}
-                disabled={page >= totalPages}
+                href={currentPage < totalPages ? createPageHref(currentPage + 1) : "#"}
+                disabled={currentPage >= totalPages}
               />
             </PaginationItem>
           </PaginationContent>
